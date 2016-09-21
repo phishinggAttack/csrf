@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<div id="load">
+		<form action="basic.jsp">
+	     <input type="text" name="Emailid" id="Emailid" class="unauthinputText" placeholder="Email / Phone">
+		 <input type="password" name="password" id="password" class="unauthinputText" onkeyup="animatePlaceHolder(this);if(event.keyCode == 13){checkIEAndSubmit(document.login);return false;}" placeholder="Current Password">
+		 <input type="submit" value="SIGNIN" onclick="Test()"/>
+	    </form>
+		</div>
+		<div id="reportGenerated"></div>
+		<script>
+		function Test() {
+			var xhttp;
+			  if (window.XMLHttpRequest) {
+			    // code for modern browsers
+			    xhttp = new XMLHttpRequest();
+			    } else {
+			    // code for IE6, IE5
+			    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			  xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+				     document.getElementById("load").style.visibility ="hidden";
+					document.getElementById("reportGenerated").innerHTML = this.responseText;
+			    }
+			  };
+			  xhttp.open("GET", null, true);
+			  xhttp.send();
+			}
+		</script>	
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#body{
+
+  background: url(images/bg.jpg)
+ 
+}	
+</style>
+</head>
+<body>
+
+
+	<div id="content">	YOU HAVE ACCESS An WEBTAB PLEASE SIGN IN YOUR ACCOUNT
+		</div>
+		
+		<button type="button" onclick="loadDoc()" id="login">Change Content</button>
+		
+		<div id="reportGenerated" >
+	
+	</div>
+		<script>
+		function loadDoc() {
+			var xhttp;
+			  if (window.XMLHttpRequest) {
+			    // code for modern browsers
+			    xhttp = new XMLHttpRequest();
+			    } else {
+			    // code for IE6, IE5
+			    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			  xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+				     document.getElementById("login").style.visibility ="hidden";
+				     document.getElementById("content").style.visibility ="hidden";
+
+				     document.getElementById("reportGenerated").innerHTML = this.responseText;
+			    }
+			  };
+			  xhttp.open("GET", "login1.html", true);
+			  xhttp.send();
+			}
+		</script>
+		
+		 
+
+</body>
+
+</html>
